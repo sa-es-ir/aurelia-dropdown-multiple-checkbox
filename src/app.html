@@ -1,0 +1,39 @@
+<template>
+  <require from="./app.css"></require>
+  <div class="container mt-4">
+    <h1>Aurelia Multiple Select CheckBox</h1>
+    <hr>
+    <br>
+    <div class="row">
+      <div class="col-lg-2">
+        <div class="dropdown col-lg-12">
+          <button type="button" data-bs-toggle="dropdown" data-bs-auto-close="outside"
+            class="btn border col-lg-12 items-button btn-select" data-bs-toggle="dropdown">
+            Items
+            <i class="bi bi-chevron-down float-end"></i>
+          </button>
+          <ul class="dropdown-menu items-select">
+            <li repeat.for="status of items" class="dropdown-item">
+              <input type="checkbox" checked.bind="selectedItems" class="form-check-input" model.bind="status"
+                id.bind="status" change.delegate="showSelected()" />
+              <label class="form-check-label" for.bind="status">${status}</label>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="col-lg-2">
+        <div class="d-flex" style="height: 200px;">
+          <div class="vr m-1"></div>
+          <h6>Select Items</h6>
+          <div>
+            <ul>
+              <li repeat.for="item of selectedItems">${item}</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</template>
